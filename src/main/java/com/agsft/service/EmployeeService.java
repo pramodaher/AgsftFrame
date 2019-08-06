@@ -21,8 +21,6 @@ public class EmployeeService {
 	ModelMapper modelMapper;
 
 	public List<EmployeeDto> getEmployee() {
-		
-
 
 		List<Employee> employees = employeeRepository.findAll();
 		List<EmployeeDto> employeeList = new ArrayList<>();
@@ -30,9 +28,13 @@ public class EmployeeService {
 		employees.forEach(employee -> {
 			employeeList.add(modelMapper.map(employee, EmployeeDto.class));
 		});
-
-		int a=1;
 		return employeeList;
+
+	}
+
+	public void saveEmployee(EmployeeDto employeeDto) {
+		Employee employee = modelMapper.map(employeeDto, Employee.class);
+		employeeRepository.save(employee);
 
 	}
 

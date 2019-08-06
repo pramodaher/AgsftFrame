@@ -3,6 +3,8 @@ package com.agsft.domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +18,9 @@ public class Employee extends AuditingEntity {
 	private Date dateOfBirth;
 	private Date joiningDate;
 	private String designation;
+	@ManyToOne
+	@JoinColumn(name = "role")
+	private Role role;
 	
 	public Employee() {
 		// TODO Auto-generated constructor stub
@@ -77,6 +82,14 @@ public class Employee extends AuditingEntity {
 		this.designation = designation;
 	}
 
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -88,6 +101,7 @@ public class Employee extends AuditingEntity {
 		result = prime * result + ((joiningDate == null) ? 0 : joiningDate.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((mobileNo == null) ? 0 : mobileNo.hashCode());
+		result = prime * result + ((role == null) ? 0 : role.hashCode());
 		return result;
 	}
 
@@ -135,6 +149,11 @@ public class Employee extends AuditingEntity {
 				return false;
 		} else if (!mobileNo.equals(other.mobileNo))
 			return false;
+		if (role == null) {
+			if (other.role != null)
+				return false;
+		} else if (!role.equals(other.role))
+			return false;
 		return true;
 	}
 
@@ -142,9 +161,9 @@ public class Employee extends AuditingEntity {
 	public String toString() {
 		return "Employee [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", mobileNo="
 				+ mobileNo + ", dateOfBirth=" + dateOfBirth + ", joiningDate=" + joiningDate + ", designation="
-				+ designation + "]";
+				+ designation + ", role=" + role + "]";
 	}
-	
+
 	
 	
 }

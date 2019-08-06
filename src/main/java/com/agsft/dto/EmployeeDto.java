@@ -2,6 +2,7 @@ package com.agsft.dto;
 
 import java.util.Date;
 
+import com.agsft.domain.Role;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -32,107 +33,88 @@ public class EmployeeDto {
 	private Date dateOfBirth;
 	private Date joiningDate;
 	private String designation;
-	
+	private Role role;
 	public EmployeeDto() {
 		// TODO Auto-generated constructor stub
 	}
-
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 	public Date getCreatedAt() {
 		return createdAt;
 	}
-
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-
 	public String getCreatedBy() {
 		return createdBy;
 	}
-
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
-
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
-
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-
 	public String getUpdatedBy() {
 		return updatedBy;
 	}
-
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
 	}
-
 	public String getFirstName() {
 		return firstName;
 	}
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
 	public String getLastName() {
 		return lastName;
 	}
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
 	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 	public String getMobileNo() {
 		return mobileNo;
 	}
-
 	public void setMobileNo(String mobileNo) {
 		this.mobileNo = mobileNo;
 	}
-
 	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
-
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-
 	public Date getJoiningDate() {
 		return joiningDate;
 	}
-
 	public void setJoiningDate(Date joiningDate) {
 		this.joiningDate = joiningDate;
 	}
-
 	public String getDesignation() {
 		return designation;
 	}
-
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
-
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -147,11 +129,11 @@ public class EmployeeDto {
 		result = prime * result + ((joiningDate == null) ? 0 : joiningDate.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((mobileNo == null) ? 0 : mobileNo.hashCode());
+		result = prime * result + ((role == null) ? 0 : role.hashCode());
 		result = prime * result + ((updatedAt == null) ? 0 : updatedAt.hashCode());
 		result = prime * result + ((updatedBy == null) ? 0 : updatedBy.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -211,6 +193,11 @@ public class EmployeeDto {
 				return false;
 		} else if (!mobileNo.equals(other.mobileNo))
 			return false;
+		if (role == null) {
+			if (other.role != null)
+				return false;
+		} else if (!role.equals(other.role))
+			return false;
 		if (updatedAt == null) {
 			if (other.updatedAt != null)
 				return false;
@@ -223,15 +210,14 @@ public class EmployeeDto {
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
 		return "EmployeeDto [id=" + id + ", createdAt=" + createdAt + ", createdBy=" + createdBy + ", updatedAt="
 				+ updatedAt + ", updatedBy=" + updatedBy + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", email=" + email + ", mobileNo=" + mobileNo + ", dateOfBirth=" + dateOfBirth + ", joiningDate="
-				+ joiningDate + ", designation=" + designation + "]";
+				+ joiningDate + ", designation=" + designation + ", role=" + role + "]";
 	}
 
-	
+		
 
 }
